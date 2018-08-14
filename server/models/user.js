@@ -1,7 +1,7 @@
 // var config = require('../config/arangodb')[process.env.NODE_ENV]
-var Database = require('arangojs');
-var db = new Database({
-    url: 'http://gong:fj00admin@10.151.40.17:8529'
+let Database = require('arangojs');
+let db = new Database({
+    url: 'http://gong:fj00admin@localhost:8529'
 });
 db.useDatabase("NLAA");
 db.login("gong", "fj00admin")
@@ -19,7 +19,7 @@ module.exports = {
                 });
     },
     getUserByKey: function(userKey) {
-        var bindVars = {
+        let bindVars = {
             'userKey': userKey
         };
         console.log("getUserByKey:" + userKey)
@@ -36,7 +36,7 @@ module.exports = {
         return db.collection('nc_user').save(user);
     },
     updateUser: function(user) {
-        var bindVars = {
+        let bindVars = {
             'key': user.key,
             'username': user.username,
             "email": user.email
@@ -47,7 +47,7 @@ module.exports = {
             });
     },
     removeUser: function(userKey) {
-        var bindVars = {
+        let bindVars = {
             'userKey': userKey
         };
         return db.query('FOR x IN nc_user FILTER x._key == @userKey REMOVE x IN nc_user LET removed = OLD RETURN removed', bindVars)

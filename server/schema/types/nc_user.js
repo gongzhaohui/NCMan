@@ -15,14 +15,14 @@ const nc_user = new gql.GraphQLObjectType({
             },
             title: {
                 type: gql.GraphQLString,
-                description: 'title.' //,
+                description: 'title.' // ,
                     // resolve(source) {
                     //     return source.title;
                     // }
             },
             name: {
                 type: gql.GraphQLString,
-                description: 'The name of the user.' //,
+                description: 'The name of the user.' // ,
                     // resolve(source) {
                     //     return source.name;
                     // }
@@ -39,4 +39,4 @@ const nc_user = new gql.GraphQLObjectType({
     }
 });
 
-module.exports = nc_user
+module.exports = nc_user;
