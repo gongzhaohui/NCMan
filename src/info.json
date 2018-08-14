@@ -1,0 +1,172 @@
+{
+    "fieldName": "others",
+    "fieldNodes": [{
+        "kind": "Field",
+        "name": {
+            "kind": "Name",
+            "value": "others",
+            "loc": {
+                "start": 787,
+                "end": 793
+            }
+        },
+        "arguments": [],
+        "directives": [],
+        "loc": {
+            "start": 787,
+            "end": 793
+        }
+    }],
+    "returnType": "String",
+    "parentType": "Author",
+    "path": {
+        "prev": {
+            "prev": {
+                "key": "authors"
+            },
+            "key": 0
+        },
+        "key": "others"
+    },
+    "schema": {
+        "_queryType": "BlogAppSchema",
+        "_directives": [{
+            "name": "include",
+            "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+            "locations": ["FIELD", "FRAGMENT_SPREAD", "INLINE_FRAGMENT"],
+            "args": [{
+                "name": "if",
+                "description": "Included when true.",
+                "type": "Boolean!"
+            }]
+        }, {
+            "name": "skip",
+            "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
+            "locations": ["FIELD", "FRAGMENT_SPREAD", "INLINE_FRAGMENT"],
+            "args": [{
+                "name": "if",
+                "description": "Skipped when true.",
+                "type": "Boolean!"
+            }]
+        }, {
+            "name": "deprecated",
+            "description": "Marks an element of a GraphQL schema as no longer supported.",
+            "locations": ["FIELD_DEFINITION", "ENUM_VALUE"],
+            "args": [{
+                "name": "reason",
+                "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).",
+                "type": "String",
+                "defaultValue": "No longer supported"
+            }]
+        }],
+        "_typeMap": {
+            "BlogAppSchema": "BlogAppSchema",
+            "Author": "Author",
+            "String": "String",
+            "Post": "Post",
+            "__Schema": "__Schema",
+            "__Type": "__Type",
+            "__TypeKind": "__TypeKind",
+            "Boolean": "Boolean",
+            "__Field": "__Field",
+            "__InputValue": "__InputValue",
+            "__EnumValue": "__EnumValue",
+            "__Directive": "__Directive",
+            "__DirectiveLocation": "__DirectiveLocation"
+        },
+        "_implementations": {},
+        "__validationErrors": []
+    },
+    "fragments": {},
+    "operation": {
+        "kind": "OperationDefinition",
+        "operation": "query",
+        "variableDefinitions": [],
+        "directives": [],
+        "selectionSet": {
+            "kind": "SelectionSet",
+            "selections": [{
+                "kind": "Field",
+                "name": {
+                    "kind": "Name",
+                    "value": "authors",
+                    "loc": {
+                        "start": 758,
+                        "end": 765
+                    }
+                },
+                "arguments": [],
+                "directives": [],
+                "selectionSet": {
+                    "kind": "SelectionSet",
+                    "selections": [{
+                        "kind": "Field",
+                        "name": {
+                            "kind": "Name",
+                            "value": "id",
+                            "loc": {
+                                "start": 773,
+                                "end": 775
+                            }
+                        },
+                        "arguments": [],
+                        "directives": [],
+                        "loc": {
+                            "start": 773,
+                            "end": 775
+                        }
+                    }, {
+                        "kind": "Field",
+                        "name": {
+                            "kind": "Name",
+                            "value": "name",
+                            "loc": {
+                                "start": 778,
+                                "end": 782
+                            }
+                        },
+                        "arguments": [],
+                        "directives": [],
+                        "loc": {
+                            "start": 778,
+                            "end": 782
+                        }
+                    }, {
+                        "kind": "Field",
+                        "name": {
+                            "kind": "Name",
+                            "value": "others",
+                            "loc": {
+                                "start": 787,
+                                "end": 793
+                            }
+                        },
+                        "arguments": [],
+                        "directives": [],
+                        "loc": {
+                            "start": 787,
+                            "end": 793
+                        }
+                    }],
+                    "loc": {
+                        "start": 767,
+                        "end": 797
+                    }
+                },
+                "loc": {
+                    "start": 758,
+                    "end": 797
+                }
+            }],
+            "loc": {
+                "start": 756,
+                "end": 802
+            }
+        },
+        "loc": {
+            "start": 756,
+            "end": 802
+        }
+    },
+    "variableValues": {}
+}
