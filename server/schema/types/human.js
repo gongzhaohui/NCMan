@@ -1,5 +1,6 @@
 'use strict';
 const gql = require('graphql');
+
 const characterInterface = require('./character');
 const speciesType = require('./species');
 const episodeType = require('./episode');
