@@ -38,3 +38,5 @@ const nc_user = new gql.GraphQLObjectType({
         };
     }
 });
+
+module.exports = nc_user

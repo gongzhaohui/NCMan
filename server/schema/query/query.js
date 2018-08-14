@@ -3,9 +3,12 @@ const gql = require('graphql');
 const Types = require('../types')
 
 const nc_user = Types.nc_user;
-
+const DataLoader = require('dataloader');
 const DbSolvers = require('../../db');
-const nc_user_col = db.nc_user_col;
+const db = DbSolvers.db;
+const userLoader = new DataLoader(DbSolvers.getUser);
+
+const nc_user_col = DbSolvers.nc_user_col;
 
 const queryType = new gql.GraphQLObjectType({
     name: 'Query',
@@ -19,11 +22,7 @@ const queryType = new gql.GraphQLObjectType({
                         type: gql.GraphQLString
                     }
                 },
-                resolve(root, args) {
-                    return nc_user_col.document(
-                        args.id
-                    );
-                }
+                resolve: (root, args) => DbSolvers.getUser(args.id)
             }
 
         };

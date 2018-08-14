@@ -1,5 +1,5 @@
 'use strict'
-
+// const DataLoader = require('dataloader');
 const Database = require('arangojs');
 // const aqlQuery = Database.aqlQuery;
 const db = new Database({
@@ -26,7 +26,7 @@ async function getFriendsByIDs(ids, species) {
 }
 
 async function getAppearinsByIDs(ids) {
-    let query = aql `
+    let query = `
        FOR episode IN OUTBOUND ${ids} appearsIn
             SORT episode._key ASC
             RETURN episode
@@ -34,4 +34,17 @@ async function getAppearinsByIDs(ids) {
     let response = await db.query(query)
     return response.all()
 }
-module.exports = { db, nc_user_col, getFriendsByIDs, getAppearinsByIDs }
+async function getUser(id) {
+    let query = `
+       FOR u IN nc_user 
+       filter !${id} || u._key==${id}
+            SORT u._key ASC
+            RETURN u
+          `
+    console.log(query);
+    let cursor = await db.query(query);
+    let result = await cursor.all();
+    return result
+}
+
+module.exports = { db, nc_user_col, getFriendsByIDs, getAppearinsByIDs, getUser }
