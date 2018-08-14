@@ -9,7 +9,7 @@ const droidType = Types.droidType;
 
 
 const mutationType = new gql.GraphQLObjectType({
-    name: 'Query',
+    name: 'Mutation',
     fields() {}
 })
 

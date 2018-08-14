@@ -1,8 +1,5 @@
 'use strict';
-const speciesType = require('./species');
-const episodeType = require('./episode');
-const characterInterface = require('./character');
-const humanType = require('./human');
-const droidType = require('./droid');
+const nc_user = require('./nc_user');
 
-module.exports = { speciesType, episodeType, characterInterface, humanType, droidType };
+
+module.exports = { nc_user };

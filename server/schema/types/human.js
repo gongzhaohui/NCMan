@@ -1,6 +1,3 @@
-'use strict';
-const gql = require('graphql');
-
 const characterInterface = require('./character');
 const speciesType = require('./species');
 const episodeType = require('./episode');
@@ -10,7 +7,7 @@ const DataLoader = require('dataloader');
 const db = DbSolvers.db;
 const FriendsLoader = new DataLoader(DbSolvers.getFriendsByIDs);
 const AppearinsLoader = new DataLoader(DbSolvers.getAppearinsByIDs);
-
+console.log(JSON.stringify(characterInterface, ));
 const humanType = new gql.GraphQLObjectType({
     name: 'Human',
     description: 'A humanoid creature in the Star Wars universe.',
@@ -34,25 +31,25 @@ const humanType = new gql.GraphQLObjectType({
                 type: gql.GraphQLString,
                 description: 'The name of the human.'
             },
-            friends: {
-                type: new gql.GraphQLList(characterInterface),
-                description: 'The friends of the human, or an empty list if they have none.',
-                args: {
-                    species: {
-                        type: speciesType,
-                        description: 'The species of the friends.'
-                    }
-                },
-                resolve(human, args) {
-                    // We want to store friendship relations as edges in an
-                    // edge collection. Here we're returning the friends of
-                    // a character with an AQL graph traversal query, see
-                    // https://docs.arangodb.com/Aql/GraphTraversals.html#working-on-collection-sets
-                    const species = args.species || null;
-                    return FriendsLoader(human._id, species)
-                        // .toArray();
-                }
-            },
+            // friends: {
+            //     type: new gql.GraphQLList(characterInterface),
+            //     description: 'The friends of the human, or an empty list if they have none.',
+            //     args: {
+            //         species: {
+            //             type: speciesType,
+            //             description: 'The species of the friends.'
+            //         }
+            //     },
+            //     resolve(human, args) {
+            //         // We want to store friendship relations as edges in an
+            //         // edge collection. Here we're returning the friends of
+            //         // a character with an AQL graph traversal query, see
+            //         // https://docs.arangodb.com/Aql/GraphTraversals.html#working-on-collection-sets
+            //         const species = args.species || null;
+            //         return FriendsLoader(human._id, species)
+            //             // .toArray();
+            //     }
+            // },
             appearsIn: {
                 type: new gql.GraphQLList(episodeType),
                 description: 'Which movies they appear in.',
@@ -73,5 +70,7 @@ const humanType = new gql.GraphQLObjectType({
     },
     interfaces: [characterInterface]
 });
-
+console.log(humanType.getInterfaces());
+// var context = new SchemaValidationContext(schema);
+// validateObjectInterfaces
 module.exports = humanType;

@@ -12,10 +12,7 @@ db.login("gong", "fj00admin")
     // is mounted. This way we can have multiple copies of this
     // service mounted on the same database without worrying about
     // name conflicts in their collections.
-const episodes = db.collection('episodes');
-const characters = db.collection('characters');
-const friends = db.collection('friends');
-const appearsIn = db.collection('appearsIn');
+const nc_user_col = db.collection('nc_user');
 
 async function getFriendsByIDs(ids, species) {
     let query = aql `
@@ -37,4 +34,4 @@ async function getAppearinsByIDs(ids) {
     let response = await db.query(query)
     return response.all()
 }
-module.exports = { db, episodes, characters, friends, appearsIn, getFriendsByIDs, getAppearinsByIDs }
+module.exports = { db, nc_user_col, getFriendsByIDs, getAppearinsByIDs }
