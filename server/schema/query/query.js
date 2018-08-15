@@ -1,6 +1,6 @@
 'use strict';
 const gql = require('graphql');
-const Types = require('../types')
+const Types = require('../types');
 
 const nc_user = Types.nc_user;
 const DataLoader = require('dataloader');
@@ -22,7 +22,7 @@ const queryType = new gql.GraphQLObjectType({
                         type: gql.GraphQLString
                     }
                 },
-                resolve: (root, args) => DbSolvers.getUser(args.id)
+                resolve: (source, args, context, ast) => DbSolvers.getUser(args.id)
             }
 
         };
