@@ -15,7 +15,7 @@ const queryType = new gql.GraphQLObjectType({
     fields() {
         return {
             nc_user: {
-                type: nc_user,
+                type: new gql.GraphQLList(nc_user),
                 args: {
                     id: {
                         description: 'If omitted, returns all.',

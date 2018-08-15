@@ -37,14 +37,15 @@ async function getAppearinsByIDs(ids) {
 async function getUser(id) {
     let query = `
        FOR u IN nc_user 
-       filter !${id} || u._key==${id}
+       filter ${!id} || u._key=="${id}"
             SORT u._key ASC
-            RETURN u
-          `
-    console.log(query);
-    let cursor = await db.query(query);
-    let result = await cursor.all();
-    return result
+            RETURN u`
+        // console.log(query);
+    let response = await db.query(query);
+    // console.log("-------------response------------" + JSON.stringify(response));
+    let result = await response.all();
+    // console.log("------result------" + JSON.stringify(result));
+    return result;
 }
 
 module.exports = { db, nc_user_col, getFriendsByIDs, getAppearinsByIDs, getUser }
