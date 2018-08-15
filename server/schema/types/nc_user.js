@@ -7,10 +7,10 @@ const nc_user = new gql.GraphQLObjectType({
     fields() {
         return {
             id: {
-                type: gql.GraphQLString,
+                type: new gql.GraphQLNonNull(gql.GraphQLString),
                 description: 'The id of the user.',
                 resolve(source) {
-                    console.log("-------------source-------" + JSON.stringify(source));
+                    // console.log("-------------source-------" + JSON.stringify(source));
                     return source._key;
                 }
             },

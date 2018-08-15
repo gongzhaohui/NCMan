@@ -1,7 +1,7 @@
 // var config = require('../config/arangodb')[process.env.NODE_ENV]
 let Database = require('arangojs');
 let db = new Database({
-    url: 'http://gong:fj00admin@localhost:8529'
+    url: 'http://gong:fj00admin@10.151.40.17:8529'
 });
 db.useDatabase("NLAA");
 db.login("gong", "fj00admin")
