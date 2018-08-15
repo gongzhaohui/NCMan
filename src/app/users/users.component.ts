@@ -12,11 +12,11 @@ import {nc_user, Query} from '../types';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users: Observable<nc_user[]>;
+  Users: Observable<nc_user[]>;
   constructor(private apollo: Apollo) { }
 
   ngOnInit() {
-    this.users = this.apollo.watchQuery<Query>({
+    this.Users = this.apollo.watchQuery<Query>({
       query: gql`
         query allusers {
           nc_user{
@@ -31,7 +31,10 @@ export class UsersComponent implements OnInit {
     })
       .valueChanges
       .pipe(
-        map(result => result.data.users)
+        map(result => {
+          // console.log(JSON.stringify(result.data));
+          return result.data.nc_user;
+        })
       );
   }
   }
