@@ -2,22 +2,22 @@
 /**
  * Module dependencies.
  */
-//process.env.NODE_ENV = process.env.NODE_ENV | "development"
+// process.env.NODE_ENV = process.env.NODE_ENV | "development"
 const app = require('../app');
-var debug = require('debug')('NCMAN:server');
-var http = require('http');
-var appConfig = require('../app.json');
+const debug = require('debug')('NCMAN:server');
+const http = require('http');
+const appConfig = require('../app.json');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var env = [];
+let env = [];
 env = appConfig.env;
-for (var k in env) {
+for (let k in env) {
     process.env[k] = env[k];
 };
-var port = normalizePort(process.env.PORT || '3000');
+let port = normalizePort(process.env.PORT || '3000');
 
 app.set('port', port);
 
@@ -25,7 +25,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+let server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -41,7 +41,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-    var port = parseInt(val, 10);
+    let port = parseInt(val, 10);
 
     if (isNaN(port)) {
         // named pipe
@@ -65,7 +65,7 @@ function onError(error) {
         throw error;
     }
 
-    var bind = typeof port === 'string' ?
+    let bind = typeof port === 'string' ?
         'Pipe ' + port :
         'Port ' + port;
 
@@ -89,8 +89,8 @@ function onError(error) {
  */
 
 function onListening() {
-    var addr = server.address();
-    var bind = typeof addr === 'string' ?
+    let addr = server.address();
+    let bind = typeof addr === 'string' ?
         'pipe ' + addr :
         'port ' + addr.port;
     debug('Listening on ' + bind);
