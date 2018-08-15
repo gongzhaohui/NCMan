@@ -3,16 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
+import {UpdateUserComponent} from './users/updateuser.component';
+
+// export function createApollo(httpLink: HttpLink) {
+//   return {
+//     link: httpLink.create({uri: 'https://localhost/graphql'}),
+//     cache: new InMemoryCache(),
+//   };
+// }
+// Apollo
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    UpdateUserComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, GraphQLModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

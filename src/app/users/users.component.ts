@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../models/user';
+import { Apollo } from 'apollo-angular';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import gql from 'graphql-tag';
+import {nc_user, Query} from '../types';
 
 @Component({
   selector: 'app-users',
@@ -7,17 +12,27 @@ import {User} from '../models/user';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  user: User = {
-    _key: 'gong',
-    _id: 'users/gong',
-    name: 'gongzhaohui',
-    email: 'dfg005@dfg.com.cn',
-    birthday: new Date('1971-04-30'),
-    title: 'IT'
-  };
-  constructor() { }
+  users: Observable<nc_user[]>;
+  constructor(private apollo: Apollo) { }
 
   ngOnInit() {
+    this.users = this.apollo.watchQuery<Query>({
+      query: gql`
+        query allusers {
+          nc_user{
+            id
+            name
+            email
+            title
+            birthday
+          }
+        }
+      `,
+    })
+      .valueChanges
+      .pipe(
+        map(result => result.data.users)
+      );
+  }
   }
 
-}

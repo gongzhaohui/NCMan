@@ -1,16 +1,16 @@
 'use strict';
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var graphqlHTTP = require('express-graphql');
-
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const graphqlHTTP = require('express-graphql');
+const cors = require('cors');
 const schema = require('./server/schema');
-var apiRouter = require('./server/routes/user');
+const apiRouter = require('./server/routes/user');
 
-var app = express();
-
+const app = express();
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -19,7 +19,7 @@ app.use('/', express.static(path.join(__dirname, 'dist/ncman')));
 app.use('/api', apiRouter);
 app.use('/graphql', graphqlHTTP({
     schema: schema,
-    graphiql: true //set to false if you don't want graphiql enabled
+    graphiql: true // set to false if you don't want graphiql enabled
 }));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

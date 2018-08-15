@@ -1,7 +1,11 @@
-<h2>{{user.name}} Details</h2>
-<div><span>_key: </span>{{user._key}}</div>
-<div style="display: none"><span>id: </span>{{user._id}}</div>
-<div><span>name: </span>{{user.name}}</div>
-<div><span>email: </span>{{user.email}}</div>
-<div><span>birthday: </span>{{user.birthday}}</div>
-<div><span>title: </span>{{user.title}}</div>
+<ul>
+    <li *ngFor="let user of users | async">
+        <caption>id</caption><span>{{user.id}}</span>
+        <caption>title</caption><textarea> {{user.title}}</textarea>
+        <caption>name</caption><textarea> {{user.name}}</textarea>
+        <caption>email</caption><textarea> {{user.email}}</textarea>
+        <caption>birthday</caption><textarea> {{user.birthday}}</textarea>
+
+        <app-updateuser [userid]="user.id"></app-updateuser>
+    </li>
+</ul>
