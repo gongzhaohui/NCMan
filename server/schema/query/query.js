@@ -5,7 +5,7 @@ const Types = require('../types');
 const nc_user = Types.nc_user;
 // const DataLoader = require('dataloader');
 const DbSolvers = require('../../db');
-const db = DbSolvers.db;
+// const db = DbSolvers.db;
 // const userLoader = new DataLoader(DbSolvers.getUser);
 
 // const nc_user_col = DbSolvers.nc_user_col;
