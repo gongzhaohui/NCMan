@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
     this.Users = this.apollo.watchQuery<Query>({
       query: gql`
         query allusers {
-          nc_user{
+          nc_users{
             id
             name
             email
@@ -32,8 +32,8 @@ export class UsersComponent implements OnInit {
       .valueChanges
       .pipe(
         map(result => {
-          // console.log(JSON.stringify(result.data));
-          return result.data.nc_user;
+           console.log(JSON.stringify(result.data));
+          return result.data.nc_users;
         })
       );
   }

@@ -14,7 +14,7 @@ const queryType = new gql.GraphQLObjectType({
     name: 'Query',
     fields() {
         return {
-            nc_user: {
+            nc_users: {
                 type: new gql.GraphQLList(nc_user),
                 args: {
                     id: {

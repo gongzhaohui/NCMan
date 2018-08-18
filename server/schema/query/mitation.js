@@ -8,4 +8,4 @@ const mutationType = new gql.GraphQLObjectType({
     fields() {}
 })
 
-module.exports = mutationType
+module.exports = mutationType;

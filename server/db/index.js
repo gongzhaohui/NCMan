@@ -4,7 +4,7 @@ const DataLoader = require('dataloader');
 const Database = require('arangojs');
 // const aqlQuery = Database.aqlQuery;
 const db = new Database({
-    url: 'http://gong:fj00admin@localhost:8529'
+    url: 'http://gong:fj00admin@10.151.40.17:8529'
 });
 db.useDatabase("NLAA");
 db.login("gong", "fj00admin");
@@ -20,7 +20,7 @@ async function getUser(ids) {
        filter ${!ids} || u._key=="${ids}"
             SORT u._key ASC
             RETURN u`;
-        // console.log(query);
+    // console.log(query);
     let response = await db.query(query);
     let result = await response.all();
     return result;
@@ -37,4 +37,4 @@ async function getUser(ids) {
 // }
 // const UserLoader = new DataLoader(getUserBy);
 
-module.exports = {db, getUser};
+module.exports = { db, getUser };

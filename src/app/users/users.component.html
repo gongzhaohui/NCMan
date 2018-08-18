@@ -1,10 +1,10 @@
 <ul>
     <li *ngFor="let user of Users | async">
-        <caption>id</caption><span>{{user.id}}</span>
-        <caption>title</caption><textarea> {{user.title}}</textarea>
-        <caption>name</caption><textarea> {{user.name}}</textarea>
-        <caption>email</caption><textarea> {{user.email}}</textarea>
-        <caption>birthday</caption><textarea> {{user.birthday}}</textarea>
+        <label>id</label><span>{{user.id}}</span>
+        <label>title</label><input type='text' value="{{user.title}}" />
+        <label>name</label><input type='text' value="{{user.name}}" />
+        <label>email</label><input type='text' value="{{user.email}}" />
+        <label>birthday</label><input type='text' value="{{user.birthday}}" />
 
         <app-updateuser [userid]="user.id"></app-updateuser>
     </li>

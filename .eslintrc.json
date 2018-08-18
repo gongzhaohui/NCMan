@@ -1,35 +1,37 @@
 {
-  "extends": "google",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true
+    "extends": "google",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "quotes": 0,
+        "no-console": 0,
+        "no-debugger": 1,
+        "no-var": 1,
+        "semi": [1, "always"],
+        "no-trailing-spaces": 0,
+        "eol-last": 0,
+        "no-unused-vars": 0,
+        "no-underscore-dangle": 0,
+        "no-alert": 0,
+        "no-lone-blocks": 0,
+        "jsx-quotes": 1,
+        "linebreak-style": "off",
+        "max-len": "off",
+        "comma-dangle": "off",
+        "require-jsdoc": "off",
+        "camelcase": "off",
+        "object-curly-spacing": "off",
+        "guard-for-in": "off"
     }
-  },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  },
-  "rules": {
-    "quotes": 0,
-    "no-console": 0,
-    "no-debugger": 1,
-    "no-var": 1,
-    "semi": [1, "always"],
-    "no-trailing-spaces": 0,
-    "eol-last": 0,
-    "no-unused-vars": 0,
-    "no-underscore-dangle": 0,
-    "no-alert": 0,
-    "no-lone-blocks": 0,
-    "jsx-quotes": 1,
-    "linebreak-style": "off",
-    "max-len": "off",
-    "comma-dangle": "off",
-    "require-jsdoc": "off",
-    "camelcase": "off"
-  }
 }

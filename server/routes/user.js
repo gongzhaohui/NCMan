@@ -46,7 +46,8 @@ router.post('/', function(req, res, next) {
             console.error('Something went wrong:', err);
             res.send("There was a problem adding the information to the database. " + err);
 
-        });
+        }
+    );
 });
 
 /* UPDATE BOOK */
